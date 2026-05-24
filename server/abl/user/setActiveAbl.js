@@ -1,6 +1,7 @@
 const userDao = require("../../dao/user-dao");
 const activeDao = require("../../dao/active-dao");
 
+//v zdani jsou 2 datove entity a zadne prihlasovani, tady sice ukaldam uzivatele ale je to jenom aktinvi uzivatel na debug, ukladam to do jsonu misto SESSION tak snad to nevadi
 async function SetActiveAbl(req, res) {
     try {
         const { id } = req.body;

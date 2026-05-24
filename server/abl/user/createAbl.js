@@ -7,7 +7,7 @@ const schema = {
     type: "object",
     properties: {
         name: { type: "string" },
-        age: { type: "integer" },
+        age: { type: "integer", minimum: 18 },
         bio: { type: "string" },
         location: {
             type: "object",
