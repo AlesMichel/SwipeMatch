@@ -8,3 +8,4 @@ Install
 
 Client neni ready - validace, zobrazeni obrazku je broken 
 Age validace funguje - nevytvori se ale userovi nehazi alert 
+Matches se zobrazuji jenom kdyz ma dostupne uzivatele na swipovani
