@@ -6,4 +6,4 @@ Install
 5. npm i --legacy-peer-deps !!!!!!!!
 6. npm run dev
 
-Client neni ready
+Client neni ready - validace
