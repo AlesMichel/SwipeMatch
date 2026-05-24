@@ -10,4 +10,5 @@ Client neni ready - validace, zobrazeni obrazku je broken <br>
 Age validace funguje - nevytvori se ale userovi nehazi alert <br>
 Matches se zobrazuji jenom kdyz ma dostupne uzivatele na swipovani<br>
 Kdyz se da velka fotka tak se to rozbije<br>
-Filtry nefiltruji jeste nevim proc
+Filtry nefiltruji jeste nevim proc<br>
+Tak asi filtruji ale poloha uzivatele ktera se ma davat do filtru je broken asi
