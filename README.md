@@ -5,3 +5,5 @@ Install
 4. cd client
 5. npm i --legacy-peer-deps !!!!!!!!
 6. npm run dev
+
+Client neni ready
