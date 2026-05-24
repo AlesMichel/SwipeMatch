@@ -7,3 +7,4 @@ Install
 6. npm run dev
 
 Client neni ready - validace, zobrazeni obrazku je broken 
+Age validace funguje - nevytvori se ale userovi nehazi alert 
