@@ -6,7 +6,7 @@ Install
 5. npm i --legacy-peer-deps !!!!!!!!
 6. npm run dev
 
-Client neni ready - validace, zobrazeni obrazku je broken <br>
+Client neni ready - validace<br>
 Age validace funguje - nevytvori se ale userovi nehazi alert <br>
 Matches se zobrazuji jenom kdyz ma dostupne uzivatele na swipovani<br>
 Kdyz se da velka fotka tak se to rozbije<br>
