@@ -3,7 +3,7 @@ Install
 2. npm i
 3. node app
 4. cd client
-5. npm i --legacy-peer-deps !!!!!!!!
+5. npm i --legacy-peer-deps !!!!!!!! - je to kvuli te swiper knihovny 
 6. npm run dev
 
 Client neni ready - validace<br>
