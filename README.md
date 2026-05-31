@@ -6,6 +6,7 @@ Install
 5. npm i --legacy-peer-deps !!!!!!!! - je to kvuli te swiper knihovny 
 6. npm run dev
 
+****
 Client neni ready - validace opraveno<br>
 Age validace funguje - nevytvori se ale userovi nehazi alert opraveno<br>
 Matches se zobrazuji jenom kdyz ma dostupne uzivatele na swipovani<br>
