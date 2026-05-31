@@ -11,10 +11,12 @@ async function ListMatchesAbl(req, res) {
 
         const allActions = matchActionDao.list();
 
-        // Koho aktivní user liknul
-        const iLiked = allActions
-            .filter((a) => a.fromProfile === activeUserId && a.action === true)
-            .map((a) => a.toProfile);
+        // Koho aktivní user liknul - deduplikovat
+        const iLiked = [...new Set(
+            allActions
+                .filter((a) => a.fromProfile === activeUserId && a.action === true)
+                .map((a) => a.toProfile)
+        )];
 
         // Kdo liknul aktivního usera
         const likedMe = new Set(

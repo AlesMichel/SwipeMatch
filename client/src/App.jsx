@@ -3,20 +3,47 @@ import { useNavigate } from "react-router-dom";
 import ImageUpload from "../src/components/ImageUploads.jsx";
 import LocationSearch from "../src/components/LocationSearch";
 
-
 const STEPS = ["Jméno", "Věk", "Pohlaví", "Lokace", "Bio", "Fotky"];
 
 export default function CreateProfile() {
     const navigate = useNavigate();
     const [step, setStep] = useState(0);
+    const [error, setError] = useState("");
     const [form, setForm] = useState({
         name: "", age: "", gender: "Male",
         location: "", bio: "", profileImage: "", mainImage: ""
     });
 
     const update = (field, value) => setForm({ ...form, [field]: value });
-    const next = () => setStep(step + 1);
-    const back = () => setStep(step - 1);
+
+    const validate = () => {
+        if (step === 0 && !form.name.trim()) {
+            setError("Jméno je povinné");
+            return false;
+        }
+        if (step === 1) {
+            if (!form.age) {
+                setError("Věk je povinný");
+                return false;
+            }
+            if (parseInt(form.age) < 18) {
+                setError("Musíš být starší 18 let");
+                return false;
+            }
+        }
+        setError("");
+        return true;
+    };
+
+    const next = () => {
+        if (!validate()) return;
+        setStep(step + 1);
+    };
+
+    const back = () => {
+        setError("");
+        setStep(step - 1);
+    };
 
     const submit = async () => {
         const res = await fetch("http://localhost:8888/api/users", {
@@ -32,7 +59,7 @@ export default function CreateProfile() {
         <div className="min-h-screen bg-white flex items-center justify-center px-4">
             <div className="w-full max-w-sm">
 
-                {/* Progress dots */}
+                {/* Progress */}
                 <div className="flex gap-1.5 mb-10">
                     {STEPS.map((_, i) => (
                         <div key={i} className={`h-0.5 flex-1 rounded-full transition-all ${i <= step ? "bg-rose-400" : "bg-gray-200"}`} />
@@ -52,6 +79,7 @@ export default function CreateProfile() {
                                 value={form.name}
                                 onChange={(e) => update("name", e.target.value)}
                             />
+                            {error && <p className="text-rose-400 text-xs mt-2">{error}</p>}
                         </>
                     )}
 
@@ -67,6 +95,7 @@ export default function CreateProfile() {
                                 value={form.age}
                                 onChange={(e) => update("age", e.target.value)}
                             />
+                            {error && <p className="text-rose-400 text-xs mt-2">{error}</p>}
                         </>
                     )}
 
@@ -80,7 +109,7 @@ export default function CreateProfile() {
                                         key={g}
                                         onClick={() => update("gender", g)}
                                         className={`flex-1 py-3 rounded-xl border text-sm font-medium transition-all
-                      ${form.gender === g
+                                            ${form.gender === g
                                             ? "border-rose-300 text-rose-400 bg-rose-50"
                                             : "border-gray-200 text-gray-400 bg-white"}`}
                                     >
@@ -119,7 +148,7 @@ export default function CreateProfile() {
                     {step === 5 && (
                         <>
                             <h2 className="text-2xl font-semibold mb-1">Přidej fotky</h2>
-                            <p className="text-gray-400 text-sm mb-6">Nahrај své fotky.</p>
+                            <p className="text-gray-400 text-sm mb-6">Nahraj své fotky.</p>
                             <div className="space-y-4">
                                 <div>
                                     <label className="text-xs text-gray-400 mb-2 block">Profilová fotka</label>
